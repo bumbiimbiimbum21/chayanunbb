@@ -1,0 +1,43 @@
+<app-content>
+<section class="site-section py-sm">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-6">
+          &nbsp;<button type="button" class="btn btn-success" [routerLink]="['/','createamulet']">เพิ่มข้อมูล</button>
+        <h1 class="mb-4">พระเครื่อง</h1>  
+      </div>  
+    </div>
+
+    <div class="row blog-entries" >
+      <div class="main-content"  *ngFor="let item of ListTbAmulet">
+        <div class="grid-container">
+        <div class="grid-item" >
+          <br>
+          <div class="col-md-8">
+            <a href="assets/images/t33.jpg"  data-animate-effect="fadeIn">
+              <img src="assets/images/t3.jpg" width="300"  >
+              <div   class="blog-content-body" >
+                <div>
+                  <br>
+                  <th scope="col">ชื่อรุ่นพระ</th>  <h6>{{item.generation}}</h6></div>
+                  <div>  <th scope="col">ปีที่สร้างพระ</th>    <h6>{{item.year}}</h6></div>
+                  <div>  <th scope="col">วัดที่สร้างพระ</th>   <h6>{{item.place}}</h6></div>
+                  <div>  <th scope="col">ราคาปัจจุบัน</th>   <h6>{{item.price}}</h6> </div>
+              </div>
+            </a>
+            <br>
+            <a class="btn btn-primary" [routerLink]="['/detail',item.amuletId]">ตำหนิพระ</a>
+            <button type="button" [routerLink]="['/home/edit',item.amuletId]" class="btn btn-success">แก้ไข</button>
+            <button type="button" (click)="onDeleteData(item.amuletId)" class="btn btn-danger">ลบ</button>
+           
+            <br>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br><br>
+</app-content>
